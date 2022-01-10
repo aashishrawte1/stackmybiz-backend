@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { router } from "utils/router-listener";
+import { router } from "./utils/router-listener";
 
 const app = express();
 
