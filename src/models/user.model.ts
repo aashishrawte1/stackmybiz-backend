@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+import IUserDB from '../interfaces/user.interface'
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -9,4 +10,4 @@ const userSchema = new mongoose.Schema({
     address: String
 });
 
-export const userModel = mongoose.model('user', userSchema);
+export const userModel = mongoose.model('User', userSchema);
