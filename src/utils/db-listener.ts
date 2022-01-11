@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 import 'dotenv/config';
 
-const db_uri = process.env.DB_URI;
+const { DB_URI } = process.env;
+export class DatabaService {
 
-mongoose.connect(db_uri);
+    static init() {
+       mongoose.connect(`${DB_URI}`);
+    }    
+}

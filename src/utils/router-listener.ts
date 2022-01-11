@@ -2,10 +2,10 @@ import * as express from "express";
 
 export const router = express.Router();
 
-router.post('/signup', (request, response) => {
-    response.send("hello world");
-});
+const apiRoutes = {
+    userLogin: "api/login",
+    userSignUp: "api/signup"
+}
 
-router.get('/login', (request, response) => {
-    response.send("hello world");
-});
+router.post(apiRoutes.userSignUp, );
+router.get(apiRoutes.userLogin, );
