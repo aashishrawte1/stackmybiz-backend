@@ -1,14 +1,15 @@
-import 'dotenv/config';
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { router } from "./utils/router-listener";
 import { validateEnv } from "./utils/validateEnv";
 import { DatabaService } from 'utils/db-listener';
 
+// dotenv.config();
+
 validateEnv();
 const app = express();
 
-function loggerMiddleware( request: express.Request, response: express.Response, next) {
+function loggerMiddleware( request: express.Request, response: express.Response, next: express.NextFunction) {
     console.log(`${request.method} ${request.path}`);
     next();
 }

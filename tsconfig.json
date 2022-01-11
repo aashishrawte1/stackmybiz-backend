@@ -2,9 +2,11 @@
 {
     "compilerOptions": {
       "sourceMap": true,
-      "target": "es2017",
+      "target": "es6",
       "outDir": "./dist",
-      "baseUrl": "./src"
+      "baseUrl": "./src",
+      "importHelpers": true,
+      "strict": true
     },
     "include": [
       "src/**/*.ts"

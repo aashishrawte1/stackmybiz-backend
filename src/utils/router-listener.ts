@@ -1,11 +1,12 @@
+import { loginUserApi, registerUserApi } from "controller/user.controller";
 import * as express from "express";
 
 export const router = express.Router();
 
 const apiRoutes = {
-    userLogin: "api/login",
-    userSignUp: "api/signup"
+    userLogin: "/login",
+    userSignUp: "/signup"
 }
 
-router.post(apiRoutes.userSignUp, );
-router.get(apiRoutes.userLogin, );
+router.post(apiRoutes.userSignUp, loginUserApi as any);
+router.get(apiRoutes.userLogin, registerUserApi as any);
