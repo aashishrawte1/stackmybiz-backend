@@ -1,3 +1,3 @@
 export interface DataStoreInToken {
-    _id: string;
+    _id: string | undefined;
 }

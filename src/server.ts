@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import { router } from "./utils/router-listener";
 import { validateEnv } from "./utils/validateEnv";
 import { DatabaService } from 'utils/db-listener';
+import * as cookieParser from "cookie-parser";
 
 // dotenv.config();
 
@@ -16,6 +17,7 @@ function loggerMiddleware( request: express.Request, response: express.Response,
 
 app.use(loggerMiddleware);
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use('/api', router);
 DatabaService.init();
 

@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 import IUserDB from '../interfaces/user.interface'
 
 const userSchema = new mongoose.Schema({
+    email: String,
     username: String,
     password: String,
     name: String,
-    mobiles: String,
+    mobile: String,
     dob: String,
     address: String
 });
