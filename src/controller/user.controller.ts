@@ -4,15 +4,16 @@ import * as bcrypt from "bcrypt";
 import { createToken } from "../../node_modules/typescript/lib/typescript";
 import { createCookie } from "utils/jwt-listenert";
 import { TokenData } from "interfaces/token-data";
+import { otpVerification } from "utils/two-factor.util";
 const user = userModel;
 
-export const loginUserApi = (
+export const loginUserApi = async (
   request: express.Request,
   response: express.Response
 ) => {
   const loginData = request.body;
 
-  const userInDb = user.findOne({ email: loginData.email });
+  const userInDb = await user.findOne({ email: loginData.phone });
 
   if (userInDb) {
     const isPasswordMatched = bcrypt.compare(
@@ -33,14 +34,17 @@ export const loginUserApi = (
   }
 };
 
-export const registerUserApi = (
+export const registerUserApi = async (
   request: express.Request,
   response: express.Response
 ) => {
   const userData = request.body;
-  if (user.findOne({ email: userData.email })) {
+  if (await user.findOne({ email: userData.phone })) {
     return response.send("user already exists");
   } else {
+
+    await otpVerification(userData.phone);
+
     const hashedPassword = bcrypt.hash(userData.password, 10);
     const userInDb = user.create({
       ...userData,

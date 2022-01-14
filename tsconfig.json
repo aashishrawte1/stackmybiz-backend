@@ -7,12 +7,17 @@
       "outDir": "./dist",
       "baseUrl": "./src",
       "importHelpers": true,
-      "strict": true
+      "strict": true,
+      "moduleResolution": "node",
+      "module": "es2015",
     },
     "include": [
       "src/**/*.ts"
     ],
     "exclude": [
       "node_modules"
-    ]
+    ],
+    "paths": {
+      "tslib" : ["@node_modules/tslib/tslib.d.ts"]
+    },
   }

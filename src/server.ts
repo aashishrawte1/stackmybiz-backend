@@ -5,9 +5,6 @@ import { validateEnv } from "./utils/validateEnv";
 import { DatabaService } from 'utils/db-listener';
 import * as cookieParser from "cookie-parser";
 
-// dotenv.config();
-
-validateEnv();
 const app = express();
 
 function loggerMiddleware( request: express.Request, response: express.Response, next: express.NextFunction) {
